@@ -4,6 +4,7 @@
 
 Flask_Blog
     |
+    |
     templates: This directory has the html files helps to render ui.
 
 ## To Run the Application:
@@ -11,7 +12,7 @@ Flask_Blog
 There are two ways to run the application:
 1. By Setting Environments Variables:
 ```
-- $ENV:FLASK_APP="<python-file>"
+- $ENV:FLASK_APP="flaskblog.py"
 - $ENV:FLASK_DEBUG=1
 - Now run the command => "flask run"
 ```
@@ -22,5 +23,5 @@ There are two ways to run the application:
     if __name__ == '__main__':
         app.run(debug=True)
     
-- Now Run the application => python <python-file>
+- Now Run the application => python flaskblog.py
 ```
