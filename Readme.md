@@ -4,6 +4,7 @@
 
 Flask_Blog
     |
+    static: This directory contains the css files.
     |
     templates: This directory has the html files helps to render ui.
 
