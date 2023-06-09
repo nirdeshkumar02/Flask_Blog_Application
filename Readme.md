@@ -1,4 +1,4 @@
-# This is the basic blog project to learn Backend Development with Python-Flask.
+# A Blog Website project to learn Backend Development with Python-Flask.
 
 ## Directory Structure:
 
