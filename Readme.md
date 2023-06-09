@@ -2,11 +2,8 @@
 
 ## Directory Structure:
 
-Flask_Blog
-    |
-    static: This directory contains the css files.
-    |
-    templates: This directory has the html files helps to render ui.
+- static: This directory contains the css files.
+- templates: This directory has the html files helps to render ui.
 
 ## To Run the Application:
 
@@ -26,3 +23,6 @@ There are two ways to run the application:
     
 - Now Run the application => python flaskblog.py
 ```
+
+## Features
+- We can pass dynamic title to page from routers. (Individual Router with Individual Title)
