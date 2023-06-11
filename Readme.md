@@ -4,6 +4,8 @@
 
 - static: This directory contains the css files.
 - templates: This directory has the html files helps to render ui.
+- form.py: It works as model definition where we put required fields with required data types and check for validation also.
+- flaskblog.py: The main file where all routes are define.
 
 ## To Run the Application:
 
@@ -25,4 +27,5 @@ There are two ways to run the application:
 ```
 
 ## Features
-- We can pass dynamic title to page from routers. (Individual Router with Individual Title)
+- We can pass dynamic title to page from routers. (Individual Router with Individual Title).
+- We use flask-wtf package to use form generation and its validation.

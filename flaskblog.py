@@ -1,6 +1,11 @@
 # Importing the Flask class and Setting Up the app variable as an instance of Flask class
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, flash, redirect
+from form import RegistrationForm, LoginForm
+
 app = Flask(__name__)
+
+# Setting Secret Configuration for external attacks.
+app.config['SECRET_KEY'] = "3d6e044ffd997a7be3e38d017453be94"
 
 posts = [
     {
@@ -21,14 +26,34 @@ posts = [
 @app.route("/")
 @app.route("/home")
 def home():
-    # Inside the layout; As page change then default title will be override using this.
     return render_template('home.html', posts=posts, title="Home Page")
 
-# Create another route for about
+
 @app.route("/about")
 def about():
-    # Inside the layout; As page change then default title will be override using this.
     return render_template('about.html', title="About Page")
+
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f"Account created for {form.username.data}!", 'success')
+        return redirect(url_for('home'))
+    return render_template('register.html', title="Registration Page", form=form)
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('login.html', title="Login Page", form=form)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
