@@ -1,26 +1,24 @@
-# Importing the Flask class and Setting Up the app variable as an instance of Flask class
-from flask import Flask, render_template, url_for, flash, redirect
-from form import RegistrationForm, LoginForm
+from flask import render_template, url_for, flash, redirect
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Post
 
-app = Flask(__name__)
-
-# Setting Secret Configuration for external attacks.
-app.config['SECRET_KEY'] = "3d6e044ffd997a7be3e38d017453be94"
 
 posts = [
     {
-        'author': 'Nirdesh Kumar',
+        'author': 'Corey Schafer',
         'title': 'Blog Post 1',
-        'content': 'First Post Content',
-        'date_posted': 'April 20, 2023'
+        'content': 'First post content',
+        'date_posted': 'April 20, 2018'
     },
     {
-        'author': 'Sarvesh Kumar',
+        'author': 'Jane Doe',
         'title': 'Blog Post 2',
-        'content': 'Second Post Content',
-        'date_posted': 'April 21, 2023'
+        'content': 'Second post content',
+        'date_posted': 'April 21, 2018'
     }
 ]
+
 
 # Serving two routes by single function
 @app.route("/")
@@ -53,7 +51,3 @@ def login():
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title="Login Page", form=form)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

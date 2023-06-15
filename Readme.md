@@ -2,11 +2,16 @@
 
 ## Directory Structure:
 
-- static: This directory contains the css files.
-- templates: This directory has the html files helps to render ui.
-- form.py: It works as model definition where we put required fields with required data types and check for validation also.
-- flaskblog.py: The main file where all routes are define.
+- Flask_Blog/flaskblog
+    - static: This directory contains the css files.
+    - templates: This directory has the html files helps to render ui.
+    - instance: This directory contains the sql based file to store data.
+    - init.py: Init file is used for initialization the Flask app and SQL DB.
+    - forms.py: Forms file have the class to register and login the user with validation.
+    - models.py: Models file contains the structure of user and post.
+    - routes.py: All the routes related to application is defined here.
 
+- Flask_Blog/run.py - The main file which run the application.
 ## To Run the Application:
 
 There are two ways to run the application:
@@ -25,6 +30,15 @@ There are two ways to run the application:
     
 - Now Run the application => python flaskblog.py
 ```
+
+3. Import SQL Instance to Local project using Python Shell
+```
+- Open terminal in the project directory
+- Run `python` in the terminal
+- Run the below command:
+    >>> from flaskblog import app, db
+    >>> app.app_context().push()
+    >>> db.create_all()
 
 ## Features
 - We can pass dynamic title to page from routers. (Individual Router with Individual Title).
